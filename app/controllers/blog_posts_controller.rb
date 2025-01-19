@@ -1,4 +1,6 @@
 class BlogPostsController < ApplicationController
+    before_action :set_blog_post, only: &i[show update destroy edit] # Set the blog post before the show, update, destroy, and edit actions
+
     def index
         @blog_posts = BlogPost.all
     end
@@ -22,9 +24,22 @@ class BlogPostsController < ApplicationController
         end
     end
 
+    def edit
+    end
+
+    def update
+    end
+
+    def destroy
+    end
+
     private
 
     def blog_post_params
         params.require(:blog_post).permit(:title, :body)
+    end
+
+    def set_blog_post
+        @blog_post = BlogPost.find(params[:id])
     end
 end
