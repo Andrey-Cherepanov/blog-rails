@@ -1,5 +1,12 @@
 <h1>New Blog Post</h1>
 <%= form_with model: @blog_post do |f| %>
+  <% if f.object.errors.any? %>
+    <div>
+      <% for message in f.object.errors.full_messages %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  <% end %>
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>

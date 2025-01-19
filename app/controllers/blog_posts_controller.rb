@@ -18,12 +18,12 @@ class BlogPostsController < ApplicationController
         if @blog_post.save
             redirect_to blog_post_path(@blog_post)
         else
-            render :new
+            render :new, status: :unprocessable_entity
         end
     end
 
     private
-    
+
     def blog_post_params
         params.require(:blog_post).permit(:title, :body)
     end
