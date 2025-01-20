@@ -1,5 +1,5 @@
 class BlogPostsController < ApplicationController
-    before_action :set_blog_post, only: &i[show update destroy edit] # Set the blog post before the show, update, destroy, and edit actions
+    before_action :set_blog_post, only: %i[show update destroy edit] # Set the blog post before the show, update, destroy, and edit actions
 
     def index
         @blog_posts = BlogPost.all
