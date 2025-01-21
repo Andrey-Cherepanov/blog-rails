@@ -1,4 +1,5 @@
 class BlogPostsController < ApplicationController
+    before_action :authenticate_user!, except: %i[index show] # Authenticate the user before the actions
     before_action :set_blog_post, only: %i[show update destroy edit] # Set the blog post before the show, update, destroy, and edit actions
 
     def index
